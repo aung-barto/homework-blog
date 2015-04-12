@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS blogs;
+CREATE TABLE blogs (
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+title TEXT,
+image TEXT,
+body TEXT,
+text_link TEXT,
+link TEXT
+);
