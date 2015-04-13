@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Don't Be Hangry</title>
+	<a href="/blogs">BLOG</a>
+	<style>
+		head{
+			font-family: helvetica;
+		}
+		body{
+			font-family: helvetica;
+			text-align: center;
+			font-size: 12px;
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+			max-width: 500px;
+		}
+		img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width:500px;
+			height:375px;
+		}
+	</style>
+</head>
+<body>
+	<h2>Create A New Post</h2>
+	<form method="POST" action="/blogs">
+		<textarea name="title">Post Title</textarea></br>
+		<textarea name="image">Post Image URL</textarea></br>
+		<textarea name="body">Post Body</textarea></br>
+		<textarea name="text_link">Link Comment</textarea></br>
+		<textarea name="link">Link</textarea></br>
+		<button>Submit New Post</button>
+	</form>
+</body>

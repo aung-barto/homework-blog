@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<title>Don't Be Hangry</title>
+	<a href="/blogs">BLOG</a>
+	<a href="/blogs/new">NEW POST</a>
+	<a href="/blog/<%= blogs.id %>/edit">EDIT POST</a>
+	<h2>Don't Be Hangry</h2>
+		<style>
+		head{
+			font-family: helvetica;
+		}
+		body{
+			font-family: helvetica;
+			text-align: center;
+			font-size: 12px;
+			display: block;
+			margin-right: auto;
+			margin-left: auto;
+			max-width: 500px;
+		}
+		img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width:500px;
+			height:375px;
+		}
+	</style>
+</head>
+<body>
+		<h2><%= blogs.title %></h2>
+		</br>
+		<img src="<%= blogs.image %>">
+		</br>
+		<p><%= blogs.body %></p>
+		<a href="<%= blogs.link %>"><%= blogs.text_link %></a></br></br>
+		<form method="POST" action="/blog/<%= blogs.id %>?_method=DELETE">
+		<input type="checkbox" name="delete" value="delete" required>Confirm Delete</input>
+		<button>DELETE POST</button>
+		</form>
+</body>
+</html>

@@ -2,7 +2,7 @@ INSERT INTO blogs (title, image, body, text_link, link)VALUES
 	(
 	"A Lemon A Day",
 	"http://educateinspirechange.org/wp-content/uploads/2014/07/juicy-lemons-hd-wallpaper-332077.jpg",
-	"Do you know what a lemon can do for you? I've dranked lemon infused water for an entire week and I've felt amazing!",
+	"Do you know what a lemon can do for you? I've dranked lemon infused water for an entire week and I feel amazing!",
 	"All the goodness from lemons",
 	"http://foodmatters.tv/articles-1/cheers-to-drinking-warm-lemon-water"
 	),
@@ -12,3 +12,16 @@ INSERT INTO blogs (title, image, body, text_link, link)VALUES
 	"Try this recipe!",
 	"http://www.epicurious.com/recipes/food/views/lemon-icebox-pie-356829"		
 	);
+
+INSERT INTO comments(comment)VALUES
+(
+	"comment 1"
+);
+
+INSERT INTO recipes(name, source, ingredient, time)VALUES
+(
+	"chicken soup",
+	"epicurious",
+	"chicken",
+	10
+);

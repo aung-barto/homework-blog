@@ -1,9 +1,24 @@
 DROP TABLE IF EXISTS blogs;
-CREATE TABLE blogs (
+CREATE TABLE blogs(
 id INTEGER PRIMARY KEY AUTOINCREMENT, 
 title TEXT,
 image TEXT,
 body TEXT,
 text_link TEXT,
 link TEXT
+);
+
+DROP TABLE IF EXISTS comments;
+CREATE TABLE comments (
+id INTEGER PRIMARY KEY AUTOINCREMENT, 
+comment TEXT
+);
+
+DROP TABLE IF EXISTS recipes;
+CREATE TABLE recipes (
+id INTEGER PRIMARY KEY AUTOINCREMENT,
+name TEXT,
+source TEXT,
+ingredient TEXT,
+time INTEGER
 );

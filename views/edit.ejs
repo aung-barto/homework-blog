@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+	<a href="/blogs">BLOG</a>
+	<style>
+		head{
+			font-family: helvetica;
+		}
+		body{
+			font-family: helvetica;
+			text-align: center;
+			font-size: 12px;
+		}
+		img {
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width:500px;
+			height:375px;
+		}
+	</style>
+</head>
+<body>
+	<h2><%= thisPost.title %></h2>
+	<form method="POST" action="/blog/<%= thisPost.id %>?_method=PUT">
+		<textarea name="title"><%= thisPost.title %></textarea></br>
+		<textarea name="image"><%= thisPost.image %></textarea></br>
+		<textarea name="body"><%= thisPost.body %></textarea></br>
+		<textarea name="text_link"><%= thisPost.text_link %></textarea></br>
+		<textarea name="link"><%= thisPost.link %></textarea></br>
+		<button>Submit Changes</button>
+	</form>
+</body>
+</html>
