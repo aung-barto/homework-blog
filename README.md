@@ -2,6 +2,8 @@
 
 ###Don't Be Hangry
 This blog app is about food. Searching and posting about food.
+http://104.236.106.226:3000/blogs
+
 ####SEARCH
 1. Users of this site can search for recipes with these combinations:
 
