@@ -1,7 +1,10 @@
 ##homework-blog
+
+###Don't Be Hangry
 This blog app is about food. Searching and posting about food.
 ####SEARCH
 1. Users of this site can search for recipes with these combinations:
+
 	 a dish name by itself, 
 	 a dish name from a website,
 	 a dish name determined by the cooking time,
@@ -11,6 +14,7 @@ This blog app is about food. Searching and posting about food.
 
 ####BLOG
 1. User(s) can create a new blog post by clicking on "NEW POST" link at the top corner to enter:
+
 	blog title
 	image URL
 	body of blog/ content
