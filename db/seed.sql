@@ -13,8 +13,9 @@ INSERT INTO blogs (title, image, body, text_link, link)VALUES
 	"http://www.epicurious.com/recipes/food/views/lemon-icebox-pie-356829"		
 	);
 
-INSERT INTO comments(comment)VALUES
+INSERT INTO comments(title, comment)VALUES
 (
+	"Lemon Icebox Pie",
 	"comment 1"
 );
 

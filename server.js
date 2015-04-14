@@ -25,7 +25,7 @@ app.get("/blogs", function(req,res){
 		if(err){
 			console.log(err);
 		} else{
-			var all_blogs = data;
+			var all_blogs = data.reverse();
 		}
 		res.render("index.ejs", {blogs: all_blogs});
 	});
@@ -39,10 +39,24 @@ app.get("/blog/:id", function(req,res){
 			console.log(err);
 		} else{
 			var thisBlog = data;
-		}
-		res.render("show.ejs", {blogs: thisBlog});
+			//add comments and send them to individual blog post
+			// db.run("SELECT comments.comment FROM blogs INNER JOIN comments ON blogs.title = comments.title WHERE id = "+postID, function(err,data){
+			// 	if(err){
+			// 		console.log(err);
+			// 	} else{
+			// 		var thisComment = data;
+			// 		console.log(thisComment);
+				}
+				res.render("show.ejs", {blogs: thisBlog});
+			// });
+		// }
 	});
 });
+
+//showing comments on individual blog post
+// app.post("/blog/:id", function(req,res){
+// 	var comment = parseInt(req.params.id)
+// })
 
 //go to create new post page
 app.get("/blogs/new", function(req,res){

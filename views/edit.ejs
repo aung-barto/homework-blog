@@ -1,21 +1,64 @@
 <!DOCTYPE html>
 <head>
-	<link rel="stylesheet"  type="text/css" href="style.css" >
 	<meta charset="UTF-8">
 	<nav>
 	<div class="homeLinks">
 		<a href="/blogs">BLOG & SEARCH</a>
 	</div>
 	</nav>
+	<style>
+	head{
+	font-family: helvetica;
+	}
+	.homeLinks{
+		text-align: right;
+	}
+	h2{
+		text-align: left;
+	}
+	nav {
+	  	height: 16px;
+	  	margin-bottom: 27px;
+	  	background-color: #F535AA;
+	  	padding-top: 0px;
+	}
+
+	body{
+		margin:0;
+		font-family: helvetica;
+		text-align: left;
+		font-size: 12px;
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		max-width: 500px;
+	}
+	nav a {
+		text-decoration: none;
+		text-align: center;
+		color: white;
+		padding-right:5px;
+	}
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width:500px;
+		height:375px;
+	}
+	.fillIn {
+		text-align: left;
+	}
+	</style>
 </head>
 <body>
-	<h2><%= thisPost.title %></h2>
+	<h2>Edit: <%= thisPost.title %></h2>
 	<form method="POST" action="/blog/<%= thisPost.id %>?_method=PUT">
 		<textarea name="title"><%= thisPost.title %></textarea></br>
 		<textarea name="image"><%= thisPost.image %></textarea></br>
 		<textarea name="body"><%= thisPost.body %></textarea></br>
 		<textarea name="text_link"><%= thisPost.text_link %></textarea></br>
-		<textarea name="link"><%= thisPost.link %></textarea></br>
+		<textarea name="link"><%= thisPost.link %></textarea></br></br>
 		<button>Submit Changes</button>
 	</form>
 </body>

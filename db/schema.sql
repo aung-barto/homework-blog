@@ -11,6 +11,7 @@ link TEXT
 DROP TABLE IF EXISTS comments;
 CREATE TABLE comments (
 id INTEGER PRIMARY KEY AUTOINCREMENT, 
+title TEXT,
 comment TEXT
 );
 

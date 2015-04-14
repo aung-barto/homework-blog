@@ -1,9 +1,56 @@
 <!DOCTYPE html>
 <head>
-	<link rel="stylesheet"  type="text/css" href="style.css" >
 	<meta charset="UTF-8">
 	<title>Don't Be Hangry</title>
-	<a href="/blogs">BLOG & SEARCH</a>
+	<nav>
+	<div class="homeLinks">
+		<a href="/blogs">BLOG & SEARCH</a>
+	</div>
+	</nav>
+	<style>
+	head{
+	font-family: helvetica;
+	}
+	.homeLinks{
+		text-align: right;
+	}
+	h2{
+		text-align: left;
+	}
+	nav {
+	  	height: 16px;
+	  	margin-bottom: 27px;
+	  	background-color: #F535AA;
+	  	padding-top: 0px;
+	}
+
+	body{
+		margin:0;
+		font-family: helvetica;
+		text-align: left;
+		font-size: 12px;
+		display: block;
+		margin-right: auto;
+		margin-left: auto;
+		max-width: 500px;
+	}
+	nav a {
+		text-decoration: none;
+		text-align: center;
+		color: white;
+		padding-right:5px;
+	}
+	img {
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		width:500px;
+		height:375px;
+	}
+	.fillIn {
+		text-align: left;
+	}
+	</style>
 </head>
 <body>
 	<h2>Create A New Post</h2>
@@ -12,7 +59,7 @@
 		<textarea name="image">Post Image URL</textarea></br>
 		<textarea name="body">Post Body</textarea></br>
 		<textarea name="text_link">Link Comment</textarea></br>
-		<textarea name="link">Link</textarea></br>
+		<textarea name="link">Link</textarea></br><br>
 		<button>Submit New Post</button>
 	</form>
 </body>
