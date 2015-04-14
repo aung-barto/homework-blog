@@ -9,6 +9,7 @@ var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({extended: false}));
 var sqlite3 = require("sqlite3").verbose();
 var db = new sqlite3.Database("./db/posts.db");
+app.use(express.static("public"));
 
 //idiot proof
 app.get("/", function(req,res){
@@ -18,7 +19,7 @@ app.get("/blog", function(req,res){
 	res.redirect("/blogs")
 });
 
-//show all posts
+//show all blog posts
 app.get("/blogs", function(req,res){
 	db.all("SELECT * FROM blogs;", function(err,data){
 		if(err){
@@ -30,7 +31,7 @@ app.get("/blogs", function(req,res){
 	});
 });
 
-//show individual post
+//show individual blog post
 app.get("/blog/:id", function(req,res){
 	var postID = parseInt(req.params.id);
 	db.get("SELECT * FROM blogs WHERE id = "+postID, function(err,data){
@@ -64,15 +65,45 @@ app.post("/recipes", function(req,res){
 	var recipeSearch = req.body.search;
 	var sources = req.body.source;
 	var timeTake = req.body.cookTime;
-	var allSearch = recipeSearch + sources + timeTake;
-		request.get("https://api.edamam.com/search?q=" + allSearch, function(err,data){
-			var parsed = JSON.parse(data.body).hits.recipe;
-			console.log(parsed);
+	if(recipeSearch != "search"){
+		request.get("https://api.edamam.com/search?q=" + recipeSearch, function(err,response,body){
+			var parsed = JSON.parse(body).hits;
 			res.render("recipes.ejs",{recipes: parsed});
 		});
+	} 
+	else if(sources != "site"){
+		request.get("https://api.edamam.com/search?q=" + sources, function(err,response,body){
+			var parsed = JSON.parse(body).hits;
+			res.render("recipes.ejs",{recipes: parsed});
+		});
+	}
+	else if(recipeSearch != "search" && sources != "site"){
+		request.get("https://api.edamam.com/search?q=" + recipeSearch + "+" + sources, function(err,response,body){
+			var parsed = JSON.parse(body).hits;
+			res.render("recipes.ejs",{recipes: parsed});
+		});
+	}
+	else if(recipeSearch != "search" && timeTake != "time"){
+		request.get("https://api.edamam.com/search?q=" + recipeSearch + "+" + timeTake, function(err,response,body){
+			var parsed = JSON.parse(body).hits;
+			res.render("recipes.ejs",{recipes: parsed});
+		});
+	}
+	else if(sources != "site" && timeTake != "time"){
+		request.get("https://api.edamam.com/search?q=" + sources + "+" + timeTake, function(err,response,body){
+			var parsed = JSON.parse(body).hits;
+			res.render("recipes.ejs",{recipes: parsed});
+		});
+	}
+	else {
+		request.get("https://api.edamam.com/search?q=" + recipeSearch + "+" + sources + "+" + timeTake, function(err,response,body){
+			var parsed = JSON.parse(body).hits;
+			res.render("recipes.ejs",{recipes: parsed});
+		});
+	}
 });
 
-//go to edit post page
+//go to edit blog post page
 app.get("/blog/:id/edit", function(req,res){
 	var blogID = parseInt(req.params.id);
 	db.get("SELECT * FROM blogs WHERE id = "+ blogID, function(err,data){
@@ -85,7 +116,7 @@ app.get("/blog/:id/edit", function(req,res){
 	});
 });
 
-//update post
+//update blog post
 app.put("/blog/:id", function(req,res){
 	db.run("UPDATE blogs SET title = ?, image = ?, body = ?, text_link = ?, link = ? WHERE id = ?", req.body.title, req.body.image, req.body.body, req.body.text_link, req.body.link, parseInt(req.params.id), function(err,data){
 			if(err){
@@ -96,7 +127,7 @@ app.put("/blog/:id", function(req,res){
 	});
 });
 
-//delete a post
+//delete a blog post
 app.delete("/blog/:id", function(req,res){
 	db.run("DELETE FROM blogs WHERE id = "+ parseInt(req.params.id), function(err,data){
 		if(err){

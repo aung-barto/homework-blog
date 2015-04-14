@@ -1,47 +1,20 @@
-<!DOCTYPE html>
+<html>
 <head>
+	<link rel="stylesheet"  type="text/css" href="style.css" >	
 	<meta charset="UTF-8">
 	<title>Don't Be Hangry</title>
+	<nav>
 	<div class="homeLinks">
 		<a href="/blogs/new">NEW POST</a>
 	</div>
-	<style>
-		head{
-			font-family: helvetica;
-		}
-		.homeLinks{
-			text-align: right;
-		}
-		h2{
-			text-align: left;
-		}
-		body{
-			font-family: helvetica;
-			text-align: left;
-			font-size: 12px;
-			display: block;
-			margin-right: auto;
-			margin-left: auto;
-			max-width: 500px;
-		}
-		img {
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-			width:500px;
-			height:375px;
-		}
-		.fillIn {
-			text-align: left;
-		}
-	</style>
+	</nav>
 </head>
 <body>
 	<h1>Don't Be Hangry</h1>
 	<div class="fillIn">
 	 <form method="POST" action="/recipes">
 		<label>Find a recipe</label>
-		<input type="text" name="search" placeholder="search"></br>
+		<input type="text" name="search" placeholder="search" required></br>
 		<label>Search by your favorite sites</label>
 		<input type="text" name="site" placeholder="site"></br>
 		<label>Search by time to cook</label>
@@ -56,6 +29,7 @@
 		</br>
 		<p><%= obj.body %></p>
 		<a href="<%= obj.link %>"><%= obj.text_link %></a>
+		<p>......................................................................................................................................................</p>
 	 <% }); %>
 </body>
 </html>

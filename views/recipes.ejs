@@ -1,44 +1,28 @@
 <!DOCTYPE html>
 <head>
+	<link rel="stylesheet"  type="text/css" href="style.css" >
 	<meta charset="UTF-8">
 	<title>Don't Be Hangry</title>
-	<a href="/blogs">BLOG & SEARCH</a>
-	<h2>Don't Be Hangry Recipe Search Results</h2>
-		<style>
-		head{
-			font-family: helvetica;
-		}
-		body{
-			font-family: helvetica;
-			text-align: center;
-			font-size: 12px;
-			display: block;
-			margin-right: auto;
-			margin-left: auto;
-			max-width: 500px;
-		}
-		img {
-			display: block;
-			margin-left: auto;
-			margin-right: auto;
-			width:500px;
-			height:375px;
-		}
-	</style>
+	<nav>
+	<div class="homeLinks">
+		<a href="/blogs">BLOG & SEARCH</a>
+	</div>
+	</nav>
+	<h1>Don't Be Hangry Recipe Search Results</h1>
 </head>
 <body>
 	<% recipes.forEach(function(meal){ %>
-		<h2><%= meal.label %></h2>
+		<h2><%= meal.recipe.label %></h2>
 		</br>
-		<img src="<%= meal.image %>">
+		<img src="<%= meal.recipe.image %>">
 		</br>
-		<p><%= meal.source %></p></br>
-		<a href="<%= meal.url %>">Get Cooking Directions</a></br></br>
-		<p><%= meal.ingredientLines %></p></br>
-		<p><%= meal.totalTime %></p></br>
-		<p><%= meal.prepTime %></p></br>
-		<p><%= meal.cookingTime %></p></br>
-
+		<p>Recipe From: <%= meal.recipe.source %></p>
+		<a href="<%= meal.recipe.url %>">Get Cooking Directions</a></br></br>
+		<p>Ingredients: <%= meal.recipe.ingredientLines %></p>
+		<p>Total Time: <%= meal.recipe.totalTime %></p>
+		<p>Prep Time: <%= meal.recipe.prepTime %></p>
+		<p>Cooking Time: <%= meal.recipe.cookingTime %></p>
+		<p>......................................................................................................................................................</p>
 	<% }); %>
 
 </body>
