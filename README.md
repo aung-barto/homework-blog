@@ -32,4 +32,5 @@ This blog app is about food. Searching and posting about food.
 ####ERD
 
 blog'---- * post
+
 blog'---- * search'---- * result
