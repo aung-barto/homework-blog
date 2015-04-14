@@ -28,3 +28,8 @@ This blog app is about food. Searching and posting about food.
 4. If user choose to edit a post, this will take them another page where they can edit every item. Once editing is completed user will have a chance to view the edited post before clicking on "BLOG & SEARCH", to navigate back to the index page and see the posts in the same order.
 
 5. If user choose to delete a post, a confirmation box must be checked before clicking on "DELETE POST" button. After the post is deleted, user will be returned to the index page.
+
+####ERD
+
+blog'---- * post
+blog'---- * search'---- * result
